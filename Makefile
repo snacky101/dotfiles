@@ -4,7 +4,7 @@ UNAME := $(shell uname -s)
 BACKUP_DIR := $(HOME)/.dotfiles_backup/$(shell date +%Y%m%d_%H%M%S)
 
 .PHONY: help setup setup-full install install-full uninstall clean
-.PHONY: backup backup-full _install _install-wezterm
+.PHONY: backup backup-full clean-backup _install _install-wezterm
 .PHONY: deps deps-full deps-packages deps-wezterm deps-lazygit deps-starship deps-tpm deps-omz
 .PHONY: post-install post-tmux post-nvim
 
@@ -28,6 +28,7 @@ help:
 	@echo "  make install     Create symlinks (without wezterm)"
 	@echo "  make install-full  Create symlinks (with wezterm)"
 	@echo "  make post-nvim   Setup nvim (plugins, LSP, treesitter)"
+	@echo "  make clean-backup  Remove all backups"
 	@echo "  make post-tmux   Install tmux plugins"
 
 # =============================================================================
@@ -75,6 +76,15 @@ backup:
 backup-full: backup
 	@[ -e $(XDG_CONFIG)/wezterm ] && [ ! -L $(XDG_CONFIG)/wezterm ] && cp -r $(XDG_CONFIG)/wezterm $(BACKUP_DIR)/ || true
 
+clean-backup:
+	@if [ -d $(HOME)/.dotfiles_backup ]; then \
+		echo "Removing $(HOME)/.dotfiles_backup..."; \
+		rm -rf $(HOME)/.dotfiles_backup; \
+		echo "Done!"; \
+	else \
+		echo "No backups found."; \
+	fi
+
 uninstall clean:
 	@echo "Removing symlinks..."
 	@rm -f $(HOME)/.zshrc $(HOME)/.tmux.conf
@@ -92,9 +102,10 @@ deps-full: deps deps-wezterm
 
 deps-packages:
 ifeq ($(UNAME),Darwin)
-	brew install zsh tmux neovim fzf ripgrep fd go node zoxide
+	brew install zsh tmux neovim fzf ripgrep fd go node zoxide tree-sitter
 else
 	sudo dnf install -y zsh tmux neovim fzf ripgrep fd-find golang nodejs npm zoxide
+	npm install -g tree-sitter-cli
 endif
 
 deps-wezterm:
