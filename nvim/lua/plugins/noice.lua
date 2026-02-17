@@ -16,5 +16,19 @@ return {
 			command_palette = true,
 			long_message_to_split = true,
 		},
+		views = {
+			hover = {
+				border = { style = "rounded" },
+			},
+			popup = {
+				border = { style = "rounded" },
+			},
+			confirm = {
+				border = { style = "rounded" },
+			},
+			popupmenu = {
+				border = { style = "rounded" },
+			},
+		},
 	},
 }
