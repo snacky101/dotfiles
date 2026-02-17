@@ -35,6 +35,13 @@ return {
 			end,
 			desc = "Toggle test summary",
 		},
+		{
+			"<leader>tp",
+			function()
+				require("neotest").output_panel.toggle()
+			end,
+			desc = "Toggle output panel",
+		},
 	},
 	config = function()
 		require("neotest").setup({
