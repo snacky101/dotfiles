@@ -102,7 +102,7 @@ deps-full: deps deps-wezterm
 
 deps-packages:
 ifeq ($(UNAME),Darwin)
-	brew install zsh tmux neovim fzf ripgrep fd go node zoxide tree-sitter
+	brew install zsh tmux neovim fzf ripgrep fd go node zoxide tree-sitter-cli
 else
 	sudo dnf install -y zsh tmux neovim fzf ripgrep fd-find golang nodejs npm zoxide
 	npm install -g tree-sitter-cli
