@@ -1,8 +1,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+# Autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 # Locale
 export LANG=ko_KR.UTF-8
@@ -19,3 +23,4 @@ eval "$(zoxide init zsh)"
 
 # Aliases
 alias vim=nvim
+alias oc=opencode
