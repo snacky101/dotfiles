@@ -35,8 +35,10 @@ return {
 				end
 
 				map("gd", vim.lsp.buf.definition, "Go to definition")
-				map("gr", vim.lsp.buf.references, "Go to references")
 				map("gh", vim.lsp.buf.hover, "Hover")
+				map("gr", function()
+					require("fzf-lua").lsp_references()
+				end, "Go to references")
 				map("<leader>ca", function()
 					require("fzf-lua").lsp_code_actions()
 				end, "Code action")

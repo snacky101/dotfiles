@@ -13,7 +13,7 @@ config = {
   default_cursor_style = "BlinkingBar",
   color_scheme = "Nord (Gogh)",
   -- font = wezterm.font("JetBrains Mono"),
-  font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
+  font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" }),
   font_size = 13,
   background = {
     {

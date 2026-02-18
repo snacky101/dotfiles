@@ -24,3 +24,8 @@ eval "$(zoxide init zsh)"
 # Aliases
 alias vim=nvim
 alias oc=opencode
+alias k=kubectl
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/snacky/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
