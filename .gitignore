@@ -1,1 +1,7 @@
 .claude/
+
+# opencode - may contain provider API keys
+opencode/
+
+# claude - may contain sensitive auth settings
+claude/
